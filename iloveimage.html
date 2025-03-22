@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Your one-stop destination for free online tools. Compress images, convert PDFs, and more!">
+    <meta name="keywords" content="online tools, image tools, PDF tools, compress images, convert PDFs">
+    <meta name="author" content="D.P.GEHLOT">
+    <title>Online Tools - Free Image & PDF Tools</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: #2196F3; /* Changed to dark blue */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #2196F3; /* Changed to dark blue */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('IMG/hero-background.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0 0;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .tool-card h3 {
+            margin: 15px 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .tool-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .tool-card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #2196F3; /* Changed to dark blue */
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .tool-card a:hover {
+            background: #1976D2; /* Darker blue for hover */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+                padding: 10px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .tool-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Isha Tech Online Tools</h1>
+        <p>Your one-stop destination for free online tools</p>
+        <p>By D.P.Gehlot</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Image Tools</a>
+        <a href="#">PDF Tools</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Free Online Tools for Everyone</h2>
+        <p>Compress images, convert PDFs, and more with our easy-to-use tools.</p>
+    </section>
+
+    <!-- Tools Grid -->
+    <section class="tools-grid">
+        <div class="tool-card">
+            <img src="IMG/image_compressor.jpeg" alt="Image Compressor Tool - Compress images without losing quality">
+            <h3>Image Compressor</h3>
+            <p>Compress images without losing quality.</p>
+            <a href="imgcom.html">Use Tool</a>
+        </div>
+        <div class="tool-card">
+            <img src="IMG/image_to_pdf.jpeg" alt="Image to PDF Converter Tool - Convert images to PDF easily">
+            <h3>Image to PDF </h3>
+            <p>Convert your image to PDF.</p>
+            <a href="img-to-pdf.html">Use Tool</a>
+        </div>
+        <div class="tool-card">
+            <img src="IMG/pdf_to_image.jpeg" alt="PDF to Image Converter Tool - Convert PDFs to images">
+            <h3>PDF to Image</h3>
+            <p>PDF to Image Converter.</p>
+            <a href="pdf-to-img.html">Use Tool</a>
+        </div>        
+        <div class="tool-card">
+            <img src="IMG/img-resizer.jpeg" alt="Image Resizer Tool - Resize images to any dimension">
+            <h3>Image Resizer</h3>
+            <p>Resize images to any dimension.</p>
+            <a href="img-resizer.html">Use Tool</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Isha Tech Online Tools. All rights reserved.</p>
+    </footer>
+</body>
+</html>
