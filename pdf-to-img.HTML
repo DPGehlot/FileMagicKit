@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert PDF files to images easily with our online PDF to Image converter. Fast, secure, and free!">
+    <meta name="keywords" content="PDF to Image, PDF converter, image converter, online PDF tool">
+    <meta name="author" content="Your Company Name">
+    <title>PDF to Image Converter - Free Online Tool</title>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID" crossorigin="anonymous"></script>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+        }
+
+        header .author {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #converter {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #pdfInput {
+            margin-bottom: 20px;
+        }
+
+        #convertBtn, #resetBtn {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #convertBtn:hover, #resetBtn:hover {
+            background-color: #0056b3;
+        }
+
+        #imageContainer {
+            margin-top: 20px;
+            max-height: 400px; /* Fixed height for scrollable container */
+            overflow-y: auto; /* Enable vertical scrolling */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .image-wrapper {
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+
+        .download-link {
+            display: block;
+            margin-top: 5px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* AdSense Styling */
+        .adsbygoogle {
+            margin: 20px 0;
+        }
+
+        /* Navigation Buttons */
+        .nav-button {
+            background-color: #0056b3; /* Darker blue to match the theme */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #004080; /* Slightly darker on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <button onclick="goHome()" class="nav-button">Home</button>
+                <button onclick="goBack()" class="nav-button">Back</button>
+            </div>
+            <div>
+                <h1>PDF to Image Converter</h1>
+                <p>Convert your PDF files to images quickly and easily.</p>
+                <div class="author">By D.P. Gehlot</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Top AdSense Ad Unit -->
+        <section id="ad-top">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
+        <!-- PDF to Image Converter -->
+        <section id="converter">
+            <input type="file" id="pdfInput" accept="application/pdf">
+            <button id="convertBtn">Convert to Image</button>
+            <button id="resetBtn">Reset</button>
+            <div id="imageContainer"></div>
+        </section>
+
+        <!-- Bottom AdSense Ad Unit -->
+        <section id="ad-bottom">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
+                 data-ad-slot="0987654321"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Isha Tech PDF to Image Converter. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+    <script>
+        // JavaScript Functionality
+        const pdfInput = document.getElementById('pdfInput');
+        const convertBtn = document.getElementById('convertBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const imageContainer = document.getElementById('imageContainer');
+
+        convertBtn.addEventListener('click', function() {
+            if (pdfInput.files.length === 0) {
+                alert('Please select a PDF file.');
+                return;
+            }
+
+            const file = pdfInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const pdfData = new Uint8Array(event.target.result);
+                convertPdfToImages(pdfData);
+            };
+
+            reader.readAsArrayBuffer(file);
+        });
+
+        resetBtn.addEventListener('click', function() {
+            pdfInput.value = ''; // Clear file input
+            imageContainer.innerHTML = ''; // Clear images
+        });
+
+        async function convertPdfToImages(pdfData) {
+            const loadingTask = pdfjsLib.getDocument({ data: pdfData });
+            const pdf = await loadingTask.promise;
+            imageContainer.innerHTML = '';
+
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const viewport = page.getViewport({ scale: 1.5 });
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+
+                await page.render(renderContext).promise;
+
+                // Convert canvas to JPEG image
+                const image = canvas.toDataURL('image/jpeg', 1.0); // 1.0 = highest quality
+                const imgElement = document.createElement('img');
+                imgElement.src = image;
+
+                // Create download button
+                const downloadBtn = document.createElement('button');
+                downloadBtn.textContent = `Download Page ${i}`;
+                downloadBtn.className = 'download-link';
+                downloadBtn.onclick = function() {
+                    const link = document.createElement('a');
+                    link.href = image;
+                    link.download = `page-${i}.jpg`;
+                    link.click();
+                };
+
+                // Wrap image and download button in a container
+                const imageWrapper = document.createElement('div');
+                imageWrapper.className = 'image-wrapper';
+                imageWrapper.appendChild(imgElement);
+                imageWrapper.appendChild(downloadBtn);
+
+                // Add to image container
+                imageContainer.appendChild(imageWrapper);
+            }
+        }
+
+        // Navigation Functions
+        function goHome() {
+            window.location.href = "iloveimage.html"; // Replace with your main page URL
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
